@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
 
 
     defaultConfig {
         applicationId "io.grainchain.logintest"
         minSdkVersion 24
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -19,6 +19,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*'
+        exclude 'META-INF/versions/9'
+
     }
 
 }
@@ -36,4 +42,23 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+
+    //Appium dependency excluding selenium since there's duplicates
+
+//    implementation (group: 'io.appium', name: 'java-client', version: '7.5.1'){
+//        ['org.apache.commons','commons-logging'].each {
+//            exclude group: "$it"
+//        }
+//        exclude group: "org.seleniumhq.selenium", module: "selenium-api"
+//    }
+
+//    Selenium dependency
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+
+//    Cucumber dependency
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.4'
+
+
 }
