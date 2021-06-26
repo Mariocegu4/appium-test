@@ -16,13 +16,12 @@ Feature: This feature will contain scenarios to test the login screen and it's f
     #User advances to the next screen
     Then User is presented in the Home Screen
 
-    Examples:
-    | Scenario         | User             | Password   |
-    | HappyPath        | Admin@admin.com  | Admin      |
-    | GenCredentials1  | Gen              | GenAlfa    |
-    | GenCredentials2  | Gen              | GenAlfaNum |
-    | GenCredentials3  | Gen              | GenAny     |
-
+  Examples:
+  | Scenario         | User             | Password   |
+  | HappyPath        | Admin@admin.com  | Admin      |
+  | GenCredentials1  | Gen              | GenAlpha   |
+  | GenCredentials2  | Gen              | GenAlfaNum |
+  | GenCredentials3  | Gen              | GenAny     |
     #For the examples "Gen" is a keyword that a function will generate a String;
     #"Alfa" will generate alphabetic characters
     #"AlfaNum" will generate alphanumeric characters
@@ -41,11 +40,11 @@ Feature: This feature will contain scenarios to test the login screen and it's f
     And User sees the "Sign In" button as "Disabled"
 
     Examples:
-      | Scenario           | User   | Password     |
-      | NegativePath       | Admin  | Ad           |
-      | GenIVCredentials1  | Gen    | GenIVAlfa    |
-      | GenIVCredentials2  | Gen    | GenIVAlfaNum |
-      | GenIVCredentials3  | Gen    | GenIVAny     |
+  | Scenario         | User             | Password   |
+  | HappyPath        | Admin@admin.com  | Admin      |
+  | GenCredentials1  | Gen              | GenAlpha   |
+  | GenCredentials2  | Gen              | GenAlfaNum |
+  | GenCredentials3  | Gen              | GenAny     |
 
     #For the examples "Gen" is a keyword that a function will generate a String;
     #"IV" will generate INVALID strings per 'App Requisites',

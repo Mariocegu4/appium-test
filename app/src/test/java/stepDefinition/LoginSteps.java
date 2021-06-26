@@ -54,23 +54,17 @@ public class LoginSteps {
 
             WebElement ele;
 
-
+        //Generate or establish an Email
         if(user.equalsIgnoreCase("Gen")) {
-//            Generate email
+//            Generate email method
 
         }else{
                 multipleMethods.setEmail(user);
         }
 
-
+        //Generate or establish a Password
         if (pword.contains("Gen")){
-            if (pword.contains("IV")){
-//                Generate invalid password
-
-            }else{
-//                Generate valid password
-
-            }
+            multipleMethods.genPassword(pword);
         }else{
             multipleMethods.setPassword(pword);
         }

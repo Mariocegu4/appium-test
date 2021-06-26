@@ -18,11 +18,11 @@ Feature: This feature will contain scenarios to test the Home screen and it's fu
     Examples:
       | Scenario         | User             | Password   |
       | HappyPath        | Admin@admin.com  | Admin      |
-      | GenCredentials1  | Gen              | GenAlfa    |
+      | GenCredentials1  | Gen              | GenAlpha   |
       | GenCredentials2  | Gen              | GenAlfaNum |
       | GenCredentials3  | Gen              | GenAny     |
 
     #For the examples "Gen" is a keyword that a function will generate a String;
-    #"Alfa" will generate alphabetic characters
+    #"Alpha" will generate alphabetic characters
     #"AlfaNum" will generate alphanumeric characters
     #"Any" will generate any character (letters, numbers, symbols)
