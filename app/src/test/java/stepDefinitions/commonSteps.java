@@ -1,23 +1,17 @@
-package stepDefinition;
+package stepDefinitions;
 
 //import io.appium.java_client.AppiumDriver;
 //import io.appium.java_client.MobileElement;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import screenElements.LoginPage;
 import screenElements.ScreenInterface;
 import screenElements.commonButtons;
 
 import static driver.driverMethods.driver;
-import static driver.driverMethods.startdriver;
 
 public class commonSteps {
 
@@ -26,6 +20,10 @@ public class commonSteps {
     private WebDriverWait wait = new WebDriverWait(driver, 30);
 
 
+    @Given("^Cucumber execution print a line$")
+    public void testCucumber(){
+        System.out.println("Cucumber is operational");
+    }
 
     @And("^User sees the \"([^\"]*)\" button as \"([^\"]*)\"$")
     public void seeButtonStatus(String button, String status) throws Throwable {
