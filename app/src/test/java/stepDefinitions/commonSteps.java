@@ -2,8 +2,8 @@ package stepDefinitions;
 
 //import io.appium.java_client.AppiumDriver;
 //import io.appium.java_client.MobileElement;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,17 +17,17 @@ public class commonSteps {
 
     //    public static AppiumDriver<MobileElement> driver;
     private ScreenInterface common = new commonButtons();
-    private WebDriverWait wait = new WebDriverWait(driver, 30);
 
 
     @Given("^Cucumber execution print a line$")
     public void testCucumber(){
-        System.out.println("Cucumber is operational");
+        System.out.println("-------CUCUMBER IS OPERATIONAL-------");
     }
 
     @And("^User sees the \"([^\"]*)\" button as \"([^\"]*)\"$")
     public void seeButtonStatus(String button, String status) throws Throwable {
         WebElement ele;
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         boolean state = false;
 
         ele = wait.until(ExpectedConditions.
@@ -44,6 +44,7 @@ public class commonSteps {
     @And("^User clicks on \"([^\"]*)\" button$")
     public void clickButton(String button) throws Throwable {
         WebElement ele;
+        WebDriverWait wait = new WebDriverWait(driver, 15);
 
         ele = wait.until(ExpectedConditions.
                 presenceOfElementLocated(common.getEleLocator(button+" element")));

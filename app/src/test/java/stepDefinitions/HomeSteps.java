@@ -2,7 +2,7 @@ package stepDefinitions;
 
 //import io.appium.java_client.AppiumDriver;
 //import io.appium.java_client.MobileElement;
-import io.cucumber.java.en.When;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,13 +16,13 @@ public class HomeSteps {
 
 //    public static AppiumDriver<MobileElement> driver;
      private ScreenInterface home =new HomePage();
-    private WebDriverWait wait = new WebDriverWait(driver, 30);
 
 
 
     @When("^User is presented in the Home Screen$")
     public void userHomePage() throws Throwable{
         WebElement ele;
+        WebDriverWait wait = new WebDriverWait(driver, 15);
 
         ele = wait.until(ExpectedConditions.
                 presenceOfElementLocated(home.getEleLocator("MainActivity Header")));
@@ -36,6 +36,7 @@ public class HomeSteps {
     @When("^Check if Email is present$")
     public void emailHomePage() throws Throwable{
         WebElement ele;
+        WebDriverWait wait = new WebDriverWait(driver, 15);
 
         ele = wait.until(ExpectedConditions.
                 presenceOfElementLocated(home.getEleLocator("Email Element")));

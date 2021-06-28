@@ -2,10 +2,10 @@ package stepDefinitions;
 
 //import io.appium.java_client.AppiumDriver;
 //import io.appium.java_client.MobileElement;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +20,6 @@ public class LoginSteps {
 
 //    public static AppiumDriver<MobileElement> driver;
     private ScreenInterface loginScreen = new LoginPage();
-    private WebDriverWait wait = new WebDriverWait(driver, 30);
 //            Then User is presented in the Home Screen
 
     @Given("^The user enters the app for scenario \"(.*)\"$")
@@ -35,6 +34,7 @@ public class LoginSteps {
     @When("^The user is presented to the login screen$")
     public void userLoginIn() throws Throwable{
         WebElement ele;
+        WebDriverWait wait = new WebDriverWait(driver, 15);
 
         ele = wait.until(ExpectedConditions.
                 presenceOfElementLocated(loginScreen.getEleLocator("Login Header")));
@@ -49,8 +49,8 @@ public class LoginSteps {
     public void enterCredentials(String user, String pword) throws Throwable {
 
 
-            WebElement ele;
-
+        WebElement ele;
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         //Generate or establish an Email
         if(user.equalsIgnoreCase("Gen")) {
 //            Generate email method
@@ -74,33 +74,5 @@ public class LoginSteps {
                 presenceOfElementLocated(loginScreen.getEleLocator("Password element")));
         ele.sendKeys(multipleMethods.password);
     }
-
-    //This snippet could go in a commonsteps definition
-    @And("^User sees the \"([^\"]*)\" button as \"([^\"]*)\"$")
-    public void seeButtonStatus(String button, String status) throws Throwable {
-        WebElement ele;
-        boolean state = false;
-
-        ele = wait.until(ExpectedConditions.
-                presenceOfElementLocated(loginScreen.getEleLocator(button+" element")));
-
-        if (status.equalsIgnoreCase("Enabled")){
-            state = true;
-        }
-
-        Assert.assertEquals(state, ele.isEnabled());
-
-    }
-
-    //This snippet could go in a commonsteps definition
-    @And("^User clicks on \"([^\"]*)\" button$")
-    public void clickButton(String button) throws Throwable {
-        WebElement ele;
-
-        ele = wait.until(ExpectedConditions.
-                presenceOfElementLocated(loginScreen.getEleLocator(button+" element")));
-        ele.click();
-    }
-
 
 }
